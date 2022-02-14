@@ -1,0 +1,103 @@
+{% extends "main.html" %}
+
+{% block title %} {{ statistics['country'] }} Statistics {% endblock %}
+
+{% block head %} 
+    <link rel= "stylesheet" type= "text/css" href= "{{ url_for('static',filename='styles/statistics.css') }}">
+    <link rel="shortcut icon" href="{{ url_for('static',filename='img/icon.jpg') }}" >
+    <!-- <script src="{{url_for('static', filename='js/index.js')}}"></script> -->
+
+{% endblock %}
+
+
+<body >
+   
+    
+{% block content %}
+    <div class="title">
+        <h1 class="display-5" align="center"> COVID-19 Statistics from {{ statistics['country'] }}</h1>
+    </div>
+
+    <div>
+        <table class="table table-striped table-dark">
+            <thead>
+                <tr>
+                    <th scope="col">Feature</th>
+                    <th scope="col">Subfeature</th>
+                    <th scope="col">Value</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <th scope="row">Continent</th>
+                    <td></td>
+                    <td>{{ statistics['continent'] }}</td>
+                </tr>
+                <tr>
+                    <th scope="row">Population</th>
+                    <td></td>
+                    <td>{{ statistics['population'] }}</td>
+                </tr>
+                <tr>
+                    <th scope="row" rowspan="6">Cases</th>
+                    <td> New</td>
+                    <td>{{ statistics['cases']['new'] }}</td>
+                </tr>
+                <tr>
+                    <td> Active</td>
+                    <td>{{ statistics['cases']['active'] }}</td>
+                </tr>
+                <tr>
+                    <td> Critical</td>
+                    <td>{{ statistics['cases']['critical'] }}</td>
+                </tr>
+                <tr>
+                    <td> Recovered</td>
+                    <td>{{ statistics['cases']['recovered'] }}</td>
+                </tr>
+                <tr>
+                    <td> Population per Million</td>
+                    <td>{{ statistics['cases']['1M_pop'] }}</td>
+                <tr>
+                    <td> Total</td>
+                    <td>{{ statistics['cases']['total'] }}</td>
+                </tr>
+                <tr>
+                    <th scope="row" rowspan="3">Deaths</th>
+                    <td> New</td>
+                    <td> {{ statistics['deaths']['new'] }}</td>
+                </tr>
+                <tr>
+                    <td> Population per Million</td>
+                    <td>{{ statistics['deaths']['1M_pop'] }}</td>
+                </tr>
+                <tr>
+                    <td> Total</td>
+                    <td>{{ statistics['deaths']['total'] }}</td>
+                </tr>
+                <tr>
+                    <th scope="row" rowspan="2">Tests</th>
+                    <td> Population per Million</td>
+                    <td>{{ statistics['tests']['1M_pop'] }}</td>
+                </tr>
+                <tr>
+                        <td> Total</td>
+                        <td>{{ statistics['tests']['total'] }}</td>
+                </tr>
+                <tr>
+                    <th scope="row">Date</th>
+                    <td></td>
+                    <td>{{ statistics['day'] }}</td>
+                </tr>
+            </tbody>
+        <!-- <h4 class="display-5" align="center"> Ubication: {{ statistics['continent'] }} </h2> -->
+        
+    </div>
+
+{% endblock %}
+
+
+
+</body>
+
+</html>

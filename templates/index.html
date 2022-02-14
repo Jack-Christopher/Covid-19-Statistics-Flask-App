@@ -1,0 +1,50 @@
+{% extends "main.html" %}
+
+{% block title %} COVID-19 Statistics {% endblock %}
+
+{% block head %} 
+    <link rel= "stylesheet" type= "text/css" href= "{{ url_for('static',filename='styles/index.css') }}">
+    <link rel="shortcut icon" href="{{ url_for('static',filename='img/icon.jpg') }}" >
+    <script src="{{url_for('static', filename='js/index.js')}}"></script>
+
+{% endblock %}
+
+
+<body >
+   
+    
+{% block content %}
+    <div class="title">
+        <h1 class="display-4" align="center"> Welcome to COVID-19 Statistics </h1>
+        <img src="{{ url_for('static',filename='img/covid-19.svg') }}" alt="COVID-19" class="img-fluid" id="covid-19">
+
+    </div>
+
+    <div class="form-block">
+        <form>
+            <select class="form-control" id="country_select" name="country_select">
+                <option value="">Select a country/region</option>
+                {% for country in countries %}
+                    <option value="{{ country }}">{{ country }}</option>
+                {% endfor %}
+            </select>
+            <br/>
+
+            <button type="button" class="btn btn-primary form-control" id="submit" onclick="get_country()" >Display Statistics</button>
+
+        </form>
+
+        <div id="text">
+            COVID-19 is a completely FREE WEB APP that allows you to follow the progress of the coronavirus around the world. 
+            I will try to work continuously on the Web App in order to make it progress and add useful features.
+            We are open to any suggestion to improve this Web App, do not hesitate to send us your ideas or the bugs 
+            encountered to the support email address (jackchristopherhuaihua@gmail.com)
+        </div>
+    </div>
+{% endblock %}
+
+
+
+</body>
+
+</html>
